@@ -1,4 +1,4 @@
-framework module Pods_MyPokedex {
+module Pods_MyPokedex {
   umbrella header "Pods-MyPokedex-umbrella.h"
 
   export *

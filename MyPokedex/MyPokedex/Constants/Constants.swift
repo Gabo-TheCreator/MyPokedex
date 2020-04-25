@@ -27,6 +27,15 @@ public struct Constants {
         public struct Colors {
             public static let background = UIColor(named: "homeBackground")
         }
+        
+        public struct Segues {
+            public static let toPokemonDetail = "pokemonDetailModal"
+        }
+        
+        public struct ImagesTypes {
+            public static let tags = "Tag-"
+            public static let type = "Type-"
+        }
     }
     
     public struct MainTabBar {

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="681"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeCell" rowHeight="75" id="nuW-yb-Yre" customClass="HomeCell" customModule="MyPokedex" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeCell" rowHeight="75" id="nuW-yb-Yre" customClass="HomeCell" customModule="MyPokedex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nuW-yb-Yre" id="Bal-zQ-pSk">
@@ -145,6 +145,7 @@
                         <outlet property="homeViewModel" destination="Xiw-hH-rva" id="ERT-k2-HoD"/>
                         <outlet property="mainTableView" destination="sln-S7-M33" id="1cx-fF-CES"/>
                         <outlet property="searchBar" destination="FF8-2d-Pbo" id="pBD-sc-i9g"/>
+                        <segue destination="0Ko-FB-vx3" kind="presentation" identifier="pokemonDetailModal" id="J3d-0k-kHx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thl-6h-UZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,6 +157,22 @@
                 <customObject id="RvO-zx-XlZ" customClass="HomeWebService" customModule="MyPokedex" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2337.68115942029" y="0.6696428571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IuG-bH-rbi">
+            <objects>
+                <viewController id="0Ko-FB-vx3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wKH-Ct-hZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="RKJ-E0-1rz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uhn-X5-5BM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbi-LK-GGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165" y="1"/>
         </scene>
         <!--Pokemon-->
         <scene sceneID="1Xy-d8-EZv">
