@@ -14,6 +14,7 @@ class HomeViewModel: NSObject {
     private var pokemons: Pokemons?
     private var allPokemons: [Pokemon]?
     var allPokemonsDetails: [PokemonDetails] = []
+    var selectedPokemon: PokemonDetails?
 
     func fetchPokemons(completion: @escaping() -> ()) {
         homeWebService.fetchPokemons { (pokemons) in
@@ -54,6 +55,13 @@ class HomeViewModel: NSObject {
                 }
             }
         }
+    }
+    
+    func getImageURLStringFor(pokemonDetails: PokemonDetails) -> URL {
+        let id = pokemonDetails.id
+        let urlStr = String(format: Constants.API.imagesAPI, id)
+        let url = URL(string: urlStr)
+        return url!
     }
     
     func displayPokemons(completion: @escaping() -> ()) {

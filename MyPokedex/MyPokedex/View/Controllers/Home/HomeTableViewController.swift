@@ -22,10 +22,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         homeCell.name.text = thisPokemon.name.capitalized
         
-        let id = thisPokemon.id
-        homeCell.id.text = "#" + String(id)
-        let url = URL(string: String(format: Constants.API.imagesAPI, id))
+        homeCell.id.text = "#" + String(thisPokemon.id)
         
+        let url = homeViewModel.getImageURLStringFor(pokemonDetails: thisPokemon)
         homeCell.pokemonImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.Home.TableView.imagePlaceholder), options: [.continueInBackground], completed: nil)
         
         if let primaryTypeName = homeViewModel.retrivePrimaryType(thisPokemon)?.type.name.capitalized {
@@ -51,7 +50,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row #\(indexPath.row)")
+        homeViewModel.selectedPokemon = homeViewModel.allPokemonsDetails[indexPath.row]
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: Constants.Home.Segues.toPokemonDetail, sender: nil)
         }

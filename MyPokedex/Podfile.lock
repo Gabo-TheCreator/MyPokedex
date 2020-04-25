@@ -3,20 +3,24 @@ PODS:
   - SDWebImage (5.7.3):
     - SDWebImage/Core (= 5.7.3)
   - SDWebImage/Core (5.7.3)
+  - UIImageColors (2.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.1)
   - SDWebImage (~> 5.0)
+  - UIImageColors
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SDWebImage
+    - UIImageColors
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
+  UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
 
-PODFILE CHECKSUM: 32532e9db4f34911f73dc5e7f5262dd0493da508
+PODFILE CHECKSUM: 5c9dc2caddf533f6ce25021097d4760b90fbc5cb
 
 COCOAPODS: 1.9.1

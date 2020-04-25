@@ -31,8 +31,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is HomeDetailViewController {
+            let vc = segue.destination as? HomeDetailViewController
+            vc?.homeViewModel = self.homeViewModel
+        }
     }
     
     // MARK: - Functions

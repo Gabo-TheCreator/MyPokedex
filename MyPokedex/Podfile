@@ -8,4 +8,5 @@ target 'MyPokedex' do
   # Pods for MyPokedex
   pod 'Alamofire', '~> 5.1'
   pod 'SDWebImage', '~> 5.0'
+  pod 'UIImageColors'
 end
