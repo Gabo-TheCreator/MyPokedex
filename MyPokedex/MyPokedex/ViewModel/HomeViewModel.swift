@@ -28,9 +28,11 @@ class HomeViewModel: NSObject {
                 self.allPokemons = unwrappedPokemons.results
                 completion()
             } else {
-                for newPokemon in unwrappedPokemons.results {
+                for (index, newPokemon) in unwrappedPokemons.results.enumerated() {
                     self.allPokemons?.append(newPokemon)
-                    completion()
+                    if index == unwrappedPokemons.results.count - 1 {
+                        completion()
+                    }
                 }
             }
         }
@@ -51,6 +53,29 @@ class HomeViewModel: NSObject {
                 self.allPokemonsDetails.append(unwrappedPokemonDetails)
                 
                 if index == allPokemonsUnwrapped.count - 1 {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func fetchNextPokemonsPage(completion: @escaping() -> ()) {
+        let urlStr = self.pokemons?.next ?? ""
+        let url = URL(string: urlStr)
+        guard let unwrappedUrl = url else {
+            completion()
+            return
+        }
+        homeWebService.fetchNextPokemonsPage(unwrappedUrl) { (pokemons) in
+            guard let unwrapperPokemons = pokemons else {
+                completion()
+                return
+            }
+            
+            self.pokemons = unwrapperPokemons
+            for (index, newPokemon) in unwrapperPokemons.results.enumerated() {
+                self.allPokemons?.append(newPokemon)
+                if index == unwrapperPokemons.results.count - 1 {
                     completion()
                 }
             }

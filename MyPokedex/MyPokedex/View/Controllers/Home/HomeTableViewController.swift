@@ -25,7 +25,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         homeCell.id.text = "#" + String(thisPokemon.id)
         
         let url = homeViewModel.getImageURLStringFor(pokemonDetails: thisPokemon)
-        homeCell.pokemonImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.Home.TableView.imagePlaceholder), options: [.continueInBackground], completed: nil)
+        homeCell.pokemonImageView.sd_setImage(with: url) { (image, error, _SDImageCacheType, url) in
+            homeCell.pokemonImageView.image = image
+        }
         
         if let primaryTypeName = homeViewModel.retrivePrimaryType(thisPokemon)?.type.name.capitalized {
             if let primaryTypeImage = UIImage(named: Constants.Home.ImagesTypes.type + primaryTypeName) {
@@ -54,5 +56,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: Constants.Home.Segues.toPokemonDetail, sender: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == homeViewModel.allPokemonsDetails.count - 1 {
+            homeViewModel.fetchNextPokemonsPage {
+                self.homeViewModel.fetchPokemonDetails {
+                    DispatchQueue.main.async {
+                        self.mainTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let homeCell = tableView.dequeueReusableCell(withIdentifier: self.homeCellIdentifier, for: indexPath) as! HomeCell
+        homeCell.pokemonImageView.sd_cancelCurrentImageLoad()
+        homeCell.pokemonImageView.image = nil
     }
 }
