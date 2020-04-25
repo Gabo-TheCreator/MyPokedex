@@ -35,6 +35,30 @@ class HomeWebService: NSObject {
         }
     }
     
+    func fetchNextPokemonsPage(_ url:URL, completion: @escaping(Pokemons?) -> ()) {
+        let request = AF.request(url)
+        request.responseJSON { (response) in
+            switch response.result {
+            case .success(_):
+                guard let data = response.data else {
+                    completion(nil)
+                    return
+                }
+                do {
+                    let pokemons = try JSONDecoder().decode(Pokemons.self, from: data)
+                    completion(pokemons)
+                } catch let error as NSError {
+                    print("fetchPokemons - JSON Decoder failed with error \(error.localizedDescription)")
+                    completion(nil)
+                }
+                
+            case .failure(let error):
+                print("fetchPokemons - Alamofire request failed with error: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+    }
+    
     
     func fetchPokemonDetailsFrom(_ urlString:String, completion: @escaping(PokemonDetails?) -> ()) {
         let request = AF.request(urlString)
