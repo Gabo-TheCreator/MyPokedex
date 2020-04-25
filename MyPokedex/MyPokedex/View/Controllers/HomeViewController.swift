@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     // MARK: - IBOutlets
     
+    @IBOutlet var homeViewModel: HomeViewModel!
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -25,6 +27,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("viewDidLoad")
         setUpUI()
+        loadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +45,14 @@ class HomeViewController: UIViewController {
         self.mainTableView.backgroundColor = Constants.Home.Colors.background
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
+    }
+    
+    func loadData () {
+        homeViewModel.displayPokemons {
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        }
     }
 
     /*

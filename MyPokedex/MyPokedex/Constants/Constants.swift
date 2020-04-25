@@ -21,6 +21,7 @@ public struct Constants {
         
         public struct TableView {
             public static let cellHeight : CGFloat = 75
+            public static let imagePlaceholder = "placeholder"
         }
         
         public struct Colors {
@@ -34,5 +35,14 @@ public struct Constants {
             public static let tabBarUnselectedItemColor = UIColor(named: "tabBarUnselectedItemColor")
             public static let tabBarBackgroundColor = UIColor(named: "tabBarBackgroundColor")
         }
+    }
+    
+    public struct API {
+        public static let baseAPI = "https://pokeapi.co/api/v2"
+        public struct Pokemons {
+            public static let pokemonsAPI = Constants.API.baseAPI + "/pokemon"
+        }
+        
+        public static let imagesAPI = "https://pokeres.bastionbot.org/images/pokemon/%d.png"
     }
 }

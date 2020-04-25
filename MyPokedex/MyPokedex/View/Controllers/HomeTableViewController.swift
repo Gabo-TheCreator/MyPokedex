@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import SDWebImage
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return homeViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeCell = tableView.dequeueReusableCell(withIdentifier: self.homeCellIdentifier, for: indexPath) as! HomeCell
         
+        let thisRow = homeViewModel.allPokemonsDetails[indexPath.row]
+        
+        homeCell.name.text = thisRow.name.capitalized
+        
+        let id = thisRow.id
+        homeCell.id.text = "#" + String(id)
+        let url = URL(string: String(format: Constants.API.imagesAPI, id))
+        
+        homeCell.pokemonImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.Home.TableView.imagePlaceholder), options: [.continueInBackground], completed: nil)
+                
         return homeCell
     }
     

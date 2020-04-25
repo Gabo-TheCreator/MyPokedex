@@ -142,11 +142,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="46O-sy-q4W"/>
                     <connections>
+                        <outlet property="homeViewModel" destination="Xiw-hH-rva" id="ERT-k2-HoD"/>
                         <outlet property="mainTableView" destination="sln-S7-M33" id="1cx-fF-CES"/>
                         <outlet property="searchBar" destination="FF8-2d-Pbo" id="pBD-sc-i9g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thl-6h-UZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Xiw-hH-rva" customClass="HomeViewModel" customModule="MyPokedex" customModuleProvider="target">
+                    <connections>
+                        <outlet property="homeWebService" destination="RvO-zx-XlZ" id="pCX-sK-Oo4"/>
+                    </connections>
+                </customObject>
+                <customObject id="RvO-zx-XlZ" customClass="HomeWebService" customModule="MyPokedex" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2337.68115942029" y="0.6696428571428571"/>
         </scene>
