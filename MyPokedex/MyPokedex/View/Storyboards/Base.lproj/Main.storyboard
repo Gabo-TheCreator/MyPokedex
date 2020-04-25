@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JWz-cz-6ce">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,34 +43,34 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XpN-cc-QZd">
                                                     <rect key="frame" x="314" y="18" width="90" height="39"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-Xr-st1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHk-gJ-iFF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                            <constraints>
-                                                                <constraint firstItem="tHk-gJ-iFF" firstAttribute="leading" secondItem="ncg-Xr-st1" secondAttribute="leading" id="7HK-HF-klt"/>
-                                                                <constraint firstItem="tHk-gJ-iFF" firstAttribute="top" secondItem="ncg-Xr-st1" secondAttribute="top" id="FS9-i9-lqk"/>
-                                                                <constraint firstAttribute="trailing" secondItem="tHk-gJ-iFF" secondAttribute="trailing" id="Mf7-gH-Dvl"/>
-                                                                <constraint firstAttribute="bottom" secondItem="tHk-gJ-iFF" secondAttribute="bottom" id="ZcE-74-its"/>
-                                                            </constraints>
-                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtb-8t-Pbk">
-                                                            <rect key="frame" x="50" y="0.0" width="40" height="39"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mwc-Jw-0qs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Mwc-Jw-0qs" secondAttribute="bottom" id="TPu-dA-QEl"/>
                                                                 <constraint firstItem="Mwc-Jw-0qs" firstAttribute="top" secondItem="wtb-8t-Pbk" secondAttribute="top" id="cU6-jT-ITQ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Mwc-Jw-0qs" secondAttribute="trailing" id="dyB-Pr-Gnv"/>
                                                                 <constraint firstItem="Mwc-Jw-0qs" firstAttribute="leading" secondItem="wtb-8t-Pbk" secondAttribute="leading" id="oU0-Ow-Hho"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-Xr-st1">
+                                                            <rect key="frame" x="50" y="0.0" width="40" height="39"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHk-gJ-iFF">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="tHk-gJ-iFF" firstAttribute="leading" secondItem="ncg-Xr-st1" secondAttribute="leading" id="7HK-HF-klt"/>
+                                                                <constraint firstItem="tHk-gJ-iFF" firstAttribute="top" secondItem="ncg-Xr-st1" secondAttribute="top" id="FS9-i9-lqk"/>
+                                                                <constraint firstAttribute="trailing" secondItem="tHk-gJ-iFF" secondAttribute="trailing" id="Mf7-gH-Dvl"/>
+                                                                <constraint firstAttribute="bottom" secondItem="tHk-gJ-iFF" secondAttribute="bottom" id="ZcE-74-its"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>

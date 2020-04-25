@@ -37,15 +37,15 @@ class HomeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure (pokemonImage: UIImage,
-                    name: String,
-                    id: String,
-                    types: [String]) { //types: [Types]
-        self.pokemonImageView.image = pokemonImage
-        self.name.text = name
-        self.id.text = id
-        
-        // TODO - Needs configuration depending on the number of types that the pokemon have.
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        pokemonImageView.image = nil
+        name.text = ""
+        id.text = ""
+        mainTypeImageView.image = nil
+        secondaryTypeImageView.image = nil
+        typesStackWidthConstraint.constant = 90
+        secondaryTypeView.isHidden = false
     }
 
 }

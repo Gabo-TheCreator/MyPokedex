@@ -26,8 +26,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        setUpUI()
-        loadData()
+        setUpUI {
+            setUpData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Functions
     
-    func setUpUI() {
+    func setUpUI(completion: () -> ()) {
         // Set up text's
         self.navigationItem.title = Constants.Home.Labels.navigationBarTitle
         self.searchBar.placeholder = Constants.Home.Labels.searchBatPlaceHolder
@@ -45,9 +46,11 @@ class HomeViewController: UIViewController {
         self.mainTableView.backgroundColor = Constants.Home.Colors.background
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
+        
+        completion()
     }
     
-    func loadData () {
+    func setUpData () {
         homeViewModel.displayPokemons {
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()

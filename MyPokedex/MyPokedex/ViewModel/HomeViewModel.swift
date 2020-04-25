@@ -67,4 +67,25 @@ class HomeViewModel: NSObject {
     func numberOfRowsInSection(_ section:Int) -> Int {
         return self.allPokemonsDetails.count
     }
+    
+    func retrivePrimaryType (_ pokemonDetails: PokemonDetails) -> TypeElement? {
+        for type in pokemonDetails.types {
+            if type.slot == 1 {
+                return type
+            }
+        }
+        
+        return nil
+    }
+    
+    func retriveSecondaryType (_ pokemonDetails: PokemonDetails) -> TypeElement? {
+        for type in pokemonDetails.types {
+            if type.slot == 2 {
+                return type
+            }
+        }
+        
+        return nil
+    }
+    
 }

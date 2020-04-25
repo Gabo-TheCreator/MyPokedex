@@ -18,15 +18,30 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeCell = tableView.dequeueReusableCell(withIdentifier: self.homeCellIdentifier, for: indexPath) as! HomeCell
         
-        let thisRow = homeViewModel.allPokemonsDetails[indexPath.row]
+        let thisPokemon = homeViewModel.allPokemonsDetails[indexPath.row]
         
-        homeCell.name.text = thisRow.name.capitalized
+        homeCell.name.text = thisPokemon.name.capitalized
         
-        let id = thisRow.id
+        let id = thisPokemon.id
         homeCell.id.text = "#" + String(id)
         let url = URL(string: String(format: Constants.API.imagesAPI, id))
         
         homeCell.pokemonImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.Home.TableView.imagePlaceholder), options: [.continueInBackground], completed: nil)
+        
+        if let primaryTypeName = homeViewModel.retrivePrimaryType(thisPokemon)?.type.name.capitalized {
+            if let primaryTypeImage = UIImage(named: primaryTypeName) {
+                homeCell.mainTypeImageView.image = primaryTypeImage
+            }
+        }
+        
+        if let secondaryTypeName = homeViewModel.retriveSecondaryType(thisPokemon)?.type.name.capitalized {
+            if let secondaryTypeImage = UIImage(named: secondaryTypeName) {
+                homeCell.secondaryTypeImageView.image = secondaryTypeImage
+            }
+        } else {
+            homeCell.secondaryTypeView.isHidden = true
+            homeCell.typesStackWidthConstraint.constant = 40
+        }
                 
         return homeCell
     }
